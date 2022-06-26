@@ -24,13 +24,7 @@ async function main() {
     throw new Error("The wallet provided does not have enough ether!");
   }
 
-  const ballotAddress = process.argv[2];
-
-  if (!ballotAddress) {
-    throw new Error(
-      "please provide a contract address you are attempting to query"
-    );
-  }
+  const ballotAddress = ballotJSON.deploymentAddress;
 
   console.log(
     `Attaching ballot contract interface to address given: ${ballotAddress}`
