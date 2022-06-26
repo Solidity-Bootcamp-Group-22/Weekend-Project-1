@@ -36,12 +36,12 @@ async function main() {
     signer
   ) as Ballot;
 
-  // log the # number of proposals
-  console.log(`There are ${ballotContract.proposals.length} proposals`);
+  console.log("Proposal Names: ");
 
   // log the names of each
-  for (let i = 0; i < ballotContract.proposals.length; i++) {
-    console.log((await ballotContract.proposals(i)).name);
+  for (let i = 0; i <= 3; i++) {
+    const prop = (await ballotContract.proposals(i)).name;
+    console.log(ethers.utils.parseBytes32String(prop));
   }
 }
 
