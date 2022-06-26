@@ -15,15 +15,6 @@ async function main() {
   const provider = ethers.providers.getDefaultProvider("ropsten");
   const signer = wallet.connect(provider);
 
-  const balanceBigNumber = await signer.getBalance();
-  const balance = Number(ethers.utils.formatEther(balanceBigNumber));
-
-  console.log(`Wallet balance at ${wallet.address} is ${balance}`);
-
-  if (balance < 0.01) {
-    throw new Error("The wallet provided does not have enough ether!");
-  }
-
   const ballotAddress = ballotJSON.deploymentAddress;
 
   console.log(
