@@ -26,7 +26,7 @@ async function main() {
 
     // retrieve winner name and print to console
     const winner = await ballotContract.winnerName();
-    console.log(`The winning proposal is ${winner}`);
+    console.log(`The winning proposal is ${ethers.utils.parseBytes32String(winner)}`);
 }
 
 main().catch((error) => {
