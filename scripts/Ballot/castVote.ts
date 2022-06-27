@@ -27,13 +27,9 @@ async function main() {
     signer
   ) as Ballot;
 
-  console.log("Proposal Names: ");
-
-  // log the names of each
-  for (let i = 0; i <= 3; i++) {
-    const prop = (await ballotContract.proposals(i)).name;
-    console.log(ethers.utils.parseBytes32String(prop));
-  }
+  console.log("Voting....");
+  //   vote for proposal 1
+  await ballotContract.vote(2);
 }
 
 main().catch((error) => {
